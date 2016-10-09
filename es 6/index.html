@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="build/template.js"></script>
+  <script src="build/script.js"></script>
+  <title>Document</title>
+</head>
+<body>
+
+  <script type="text/html" id="myTemplate">
+    <form>
+      <ol>
+        <% var questions = Object.keys(data);
+        for(var i = 0; i < questions.length; i++) { %>
+          <li class="question">
+            <h4><%= questions[i] %></h4>
+            <% var answersObj = data[questions[i]];
+            var answers = Object.keys(answersObj); %>
+            <ul class="answer_list">
+              
+              <% for(j = 0; j < answers.length; j++) { %>
+              <li><label><input type="checkbox"><%= answers[j] %></label></li>
+              <% } %>
+
+            </ul>
+          </li>
+        <% } %>
+      </ol>
+      <input type="submit" class="button" value="Проверить мои результаты">
+    </form>
+  </script>
+  
+</body>
+</html>
